@@ -1,0 +1,10 @@
+Ошибка при подключении к базе данных.
+Ошибка: SQLSTATE[HY000] [1049] Unknown database 'diaryto'
+Файл: /var/www/diary.loc/models/project_models/MySqlDbWorkModel.php
+Строка: 20
+
+Ошибка при подключении к базе данных.
+Ошибка: could not find driver
+Файл: /var/www/diary.loc/models/project_models/MySqlDbWorkModel.php
+Строка: 22
+

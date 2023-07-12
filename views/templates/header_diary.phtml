@@ -1,0 +1,14 @@
+
+<div>
+    <nav class="menu">
+        <?php if ($loggedUser['upload_tasks'] != null) : ?>
+            <a href="/diary/add/">Add Tasks</a>
+        <?php endif; ?>
+
+        <?php if ($loggedUser['distribute_tasks'] != null) : ?>
+            <a href="/diary/distribute/">Distribute Tasks</a>
+        <?php endif; ?>
+            <a href="/diary/tasks/">Your Tasks</a>
+    </nav>
+</div>
+

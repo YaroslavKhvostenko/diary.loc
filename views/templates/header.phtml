@@ -1,0 +1,15 @@
+<header class="header">
+    <div>
+        <nav class="menu">
+            <a href="/">Main</a>
+
+            <?php if(isset($loggedUser)): ?>
+                <a href="/user/diary/">Diary</a>
+                <a href="/user/logout/">Logout</a>
+            <?php else: ?>
+                <a href="/index/login/">Log in</a>
+                <a href="/index/register/">Registration</a>
+            <?php endif; ?>
+        </nav>
+    </div>
+</header>

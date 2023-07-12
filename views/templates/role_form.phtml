@@ -1,0 +1,7 @@
+<label for="role">Choose your role in family</label>
+<select id="role" name="family_role">
+
+    <?php foreach($data['roles'] as $role): ?>
+        <option value='<?= $role['role_id'] ?>/<?= $role['role_name'] ?>'><?= $role['role_name'] ?></option>
+    <?php endforeach; ?>
+</select><br>

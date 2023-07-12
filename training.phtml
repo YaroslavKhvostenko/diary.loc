@@ -1,0 +1,75 @@
+<?php
+phpinfo();
+/*pattern for checkbox*/
+/*$string = 'abctrabi/';
+$pattern = '/[0-9]+/';
+preg_match($pattern, $string, $matches);
+var_dump($matches);
+$result = array_pop($matches);
+if (empty($result)) {
+    echo 'empty';
+} else {
+    echo $result;
+    }*/
+/*pattern for checkbox*/
+
+/*pattern for file*/
+//$string = '1)22. Buy 15.fruits Buy 15.fruits Buy 15.fruits Buy 15.fruits Buy 15.fruits Buy 15.fruits Buy 15.fruits Buy 15.fruits Buy 15.fruits Buy 15.fruits Buy 15.fruits Buy 15.fruits Buy 15.fruits Buy 15.fruits .
+//2)1.Call our mother Call our mother Call our mother Call our mother Call our mother Call our mother Call our mother Call our mother Call our mother Call our mother Call our mother .
+//A)B)Select some data Select some data Select some data Select some data Select some data Select some data Select some data Select some data Select some data Select some data Select some data .';
+/*$string = '15)22.Fist task.2.A.Second Task.3)B)Third task.';*/
+/*$string = '1)A)Fist task. 2)1)Second Task. A)B)Third task.';*/
+//$string = 'Fist task.Fist task.Fist task.Fist task.Fist task.Fist task.Fist task.Fist task.Fist task.';
+/*$pattern = '/([A-Z0-9]+[\.\)]([A-Z0-9]*[\.\)])*)(.+)/Su';*/ //working pattern
+/*$pattern = '/^([A-Z0-9]+\)([A-Z0-9]+\))*)(.*)$/uS';*/
+/*$pattern = '/(([A-Z0-9]+[\.\)])([A-Z0-9]+[\.\)]))(.)+/Su';*/
+//preg_match_all($pattern, $string, $matches);
+//var_dump($matches);
+/*pattern for file*/
+/*$tasks = array_pop($matches);
+foreach ($tasks as $task)
+    echo $task . '<br>';*/
+//var_dump($tasks);
+
+/* function where($conditions, $conditionConnectors, $sqlConnector = null)
+{
+    if (is_array($conditions)) {
+        $sql = " WHERE ";
+        $i = 1;
+        foreach ($conditions as $conditionColumn) {
+            if (!is_array($conditionConnectors)) {
+                if ($i == count($conditions)) {
+                    $sql .= "`{$conditionColumn}` {$conditionConnectors} ?";
+                    break;
+                }
+                $sql .= "`{$conditionColumn}` {$conditionConnectors} ? {$sqlConnector} ";
+                $i++;
+            } else {
+                foreach ($conditionConnectors as $conditionConnector)
+                if ($i == count($conditions)) {
+                    $finalConnector = array_pop($conditionConnectors);
+                    $sql .= "`{$conditionColumn}` {$finalConnector} ?";
+                    break;
+                }
+                $sql .= "`{$conditionColumn}` {$conditionConnector} ? {$sqlConnector} ";
+                $i++;
+            }
+        }
+    } else {
+        $sql = " WHERE `{$conditions}` {$conditionConnectors}?";
+    }
+    return $sql;
+}
+
+//$condition = 'task_id';
+ $condition = ['task_id', 'user_id'];
+//$conditionConnector = '=';
+$conditionConnector = ['=', 'IS'];
+$sqlConnector = 'AND';
+echo where($condition, $conditionConnector, $sqlConnector);*/
+
+/*$array = ['vasia' => 'pupkin', 'fedia' => 'sumkin'];
+$last = array_pop($array);
+var_dump($last);*/
+
+?>

@@ -1,0 +1,26 @@
+
+<div class="registration">
+
+            <h1 class="heading">Registration</h1>
+
+            <?php if(isset($data['errors']) && is_array($data['errors'])): ?>
+                <?php foreach($data['errors'] as $error): ?>
+                    <p class="text-danger text-center"><?php echo $error ?></p>
+                <?php endforeach; ?>
+            <?php endif; ?>
+            <form action="/index/new" method="post" class="registration-form">
+                <div>
+                    <label>Write your name: </label>
+                    <input type="text" class="form-control" name="userName" value="<?php echo $data['name']?>" required>
+                </div>
+
+                <div>
+                    <label>Write your password: </label>
+                    <input type="password" class="form-control" name="userPassword" required>
+                </div>
+                <div>
+                    <?php require_once 'role_form.phtml'?>
+                </div>
+                <input type="submit" class="button" value="Register">
+            </form>
+</div>

@@ -1,0 +1,62 @@
+<div>
+    <?php include_once 'header_diary.phtml';?>
+</div><br>
+
+
+<?php if (isset($data['errors']) && is_array($data['errors'])) : ?>
+    <?php foreach($data['errors'] as $error): ?>
+        <p class="text-danger text-center"><?= $error ?></p>
+    <?php endforeach; ?>
+<?php elseif (isset($data['success'])) : ?>
+    <p class="text-danger text-center"><?= $data['success'] ?></p>
+<?php endif; ?> <br>
+
+<?php if (isset($data['empty'])) : ?>
+    <p class="text-danger text-center"><?= $data['empty'] ?></p>
+<?php else : ?>
+
+    <table border="1" cellpadding="5" cellspacing="0" width="100%">
+        <tr>
+            <th>№</th>
+            <th>Description</th>
+            <th>Responsible</th>
+            <th>Status</th>
+            <th>Distribute</th>
+        </tr>
+        <?php
+        $i = 1;
+        foreach($data['tasks'] as $task) :
+            ?>
+            <tr>
+                <td><?= $i++ ?></td>
+                <td><?= $task['task_desc']?></td>
+
+                <?php if($task['user_id'] == null) : ?>
+                    <td>No One Responsible Yet</td>
+                <?php else : ?>
+                    <td><?= $task['responsible_name']?></td>
+                <?php endif; ?>
+                <?php if($task['exec_status'] == null) : ?>
+                    <td>IN PROGRESS</td>
+                <?php endif; ?>
+
+                <?php if ($loggedUser['distribute_tasks'] != null && $task['exec_status'] == null): ?>
+                    <td style="text-align: center;">
+                        <form action="/diary/sign/" method="post">
+                            <label for="id">Choose Your Family Member :</label><br>
+                            <select name="id">
+                                <?php foreach($data['usersData'] as $userData):
+                                    echo "<option value='{$task['task_id']}/{$userData['id']}'> {$userData['name']} - {$userData['user_family_role']}</option>";
+                                endforeach; ?>
+                            </select><br>
+                            <input type="submit" class="button" value="Distribute Task">
+                        </form><br><br>
+                    </td>
+                <?php endif; ?>
+            </tr>
+        <?php endforeach; ?>
+    </table>
+
+
+<?php endif; ?>
+

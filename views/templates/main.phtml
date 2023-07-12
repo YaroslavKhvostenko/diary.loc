@@ -1,0 +1,13 @@
+<div class="main_page">
+
+    <h1 style="text-align: center;">Main Page</h1>
+
+    <div class="content">
+        <p style="text-align: center;">Welcome to the Housework Family Diary!</p>
+        <?php if (!$this->loggedUser): ?>
+            <p style="text-align: center;">
+                If you want to use Housework Family Diary, just
+                <a class="link" href="/index/login/" >log in</a>.</p>
+        <?php endif; ?>
+    </div>
+</div>

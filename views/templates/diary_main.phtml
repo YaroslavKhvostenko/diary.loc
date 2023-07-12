@@ -1,0 +1,15 @@
+<div>
+    <?php include_once 'header_diary.phtml';?>
+</div><br>
+
+<p>According to your  '<?= ucfirst($loggedUser['family_role']) ?> - role' you can look your personal tasks
+    and mark them as done when you finished some of them.
+</p>
+
+<?php if ($loggedUser['upload_tasks'] != null) : ?>
+<p>Also you can upload file with tasks.</p>
+<?php elseif ($loggedUser['distribute_tasks'] != null) : ?>
+    <p>Also you can distribute tasks between your family members.</p>
+<?php endif; ?>
+
+

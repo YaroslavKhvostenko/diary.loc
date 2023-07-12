@@ -1,0 +1,35 @@
+
+<?php if ($loggedUser['upload_tasks'] != null) : ?>
+    <div>
+        <?php include_once 'header_diary.phtml';?>
+    </div><br>
+
+    <?php if (isset($data['errors']) && is_array($data['errors'])): ?>
+        <?php foreach($data['errors'] as $error): ?>
+            <p class="text-danger text-center"><?= $error ?></p>
+        <?php endforeach; ?>
+    <?php elseif (isset($data['success'])) : ?>
+        <p class="text-danger text-center"><?= $data['success'] ?></p>
+    <?php endif; ?> <br>
+
+    <p>Before uploading file with tasks be sure that it looks like: </p><br>
+    <p>1)Task desctiption...<br>2)Task desctiption...</p><br>
+    <p>A)Task desctiption...<br>B)Task desctiption...</p><br>
+    <p>1.Task desctiption...<br>2.Task desctiption...</p><br>
+    <p>A.Task desctiption...<br>B.Task desctiption....</p><br><br>
+
+
+    <div style="display: flex">
+        <div style="display: inline-flex">
+            <form enctype="multipart/form-data" action="/diary/upload/" method="post">
+                <input type="hidden" name="MAX_FILE_SIZE" value="20000" />
+                Chose your file: <input name="taskFile" type="file" />
+                <input type="submit" value="Upload Tasks" />
+            </form>
+        </div>
+    </div>
+
+
+<?php else : ?>
+    <h1>Stop trying to hack our diary! This page not for you!</h1>
+<?php endif; ?>

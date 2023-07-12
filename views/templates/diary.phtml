@@ -1,0 +1,50 @@
+<div>
+    <?php include_once 'header_diary.phtml';?>
+</div><br>
+
+
+<?php if (isset($data['errors']) && is_array($data['errors'])) : ?>
+    <?php foreach($data['errors'] as $error): ?>
+        <p class="text-danger text-center"><?= $error ?></p>
+    <?php endforeach; ?>
+<?php elseif (isset($data['success'])) : ?>
+    <p class="text-danger text-center"><?= $data['success'] ?></p>
+<?php endif; ?> <br>
+
+<?php if (isset($data['empty'])) : ?>
+    <p class="text-danger text-center"><?= $data['empty'] ?></p>
+<?php else : ?>
+
+    <table border="1" cellpadding="5" cellspacing="0" width="100%">
+        <tr>
+            <th>№</th>
+            <th>Description</th>
+            <th>Status</th>
+        </tr>
+        <?php
+        $i = 1;
+        foreach($data['tasks'] as $task) :
+            ?>
+            <tr>
+                <td><?= $i++ ?></td>
+                <td><?= $task['task_desc']?></td>
+                <?php if($task['exec_status'] == null) : ?>
+                    <td>
+                        <p>IN PROGRESS</p>
+                        <div>
+                            <form action="/diary/update/" method="post">
+                                <input type="checkbox" name="task_id" value="<?= $task['task_id'] ?>">
+                                <label for="task_id">Done</label>
+                                <input type="submit" value="Submit">
+                            </form>
+                        </div>
+                    </td>
+                <?php else : ?>
+                    <td>DONE</td>
+                <?php endif; ?>
+            </tr>
+            <?php endforeach; ?>
+    </table>
+
+
+<?php endif; ?>
